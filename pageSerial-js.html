@@ -1,5 +1,4 @@
 <script>
-	// document.getElementById('idCBsns').readOnly = true;
     document.getElementById('idCBs').readOnly = true;
     document.getElementById('idCBsModel').readOnly = true;
     document.getElementById('idActionResult').readOnly = true;
@@ -12,11 +11,7 @@
     document.getElementById('idCBmacAddresss').readOnly = true;
     document.getElementById('idLan2').readOnly = true;
     document.getElementById('idWan2').readOnly = true;
-    // document.getElementById('idCBIP3').readOnly = true;
     document.getElementById('idCBRecentUsers0s').readOnly = true;
-    // document.getElementById('idCBusers').readOnly = true;
-    // document.getElementById('idCBnotes').readOnly = true;
-    // document.getElementById('idCBstatuss').readOnly = true;
     
     document.addEventListener("DOMContentLoaded", function() {
     fetchCBOUs()
@@ -29,10 +24,8 @@
     }
 
         window.printCBOUs = function(CBOU) {
-        // document.getElementById('idCBsns').value = CBOU[0];
         document.getElementById('idCBs').value = CBOU[1];
         document.getElementById('idCBsModel').value = CBOU[2];
-        // document.getElementById('idActionResult').value = CBOU[3];
         document.getElementById('idCBlastsyncs').value = CBOU[4];
         document.getElementById('idCBOUs').value = CBOU[6];
         document.getElementById('idCBassets').value = CBOU[7];
@@ -42,74 +35,67 @@
         document.getElementById('idCBmacAddresss').value = CBOU[11];
         document.getElementById('idLan2').value = lan2;
         document.getElementById('idWan2').value = wan2;
-        // document.getElementById('idCBIP3').value = CBOU[12];
 
         document.getElementById('idActionResult').value = "Nuvarande status: " + CBOU[3];
-        
-        if(CBOU[3] = "ACTIVE"){
-          btnDisable.disabled=false;
+
+        // console.log('Device info: ' + CBOU);
+        // console.log('Device info: ' + CBOU[3]);
+        // console.log('status is:' + status)
+
+        let status = CBOU[3]
+        if (status == "ACTIVE") {
           btnEnable.disabled=true;
+          btnDisable.disabled=false;
           btnDeprovision.disabled=false;
-        }else if(CBOU[3] = "DISABLED"){
-          btnDisable.disabled=true;
+          // console.log('active: ' + status);
+        } else if (status == "DISABLED") {
           btnEnable.disabled=false;
+          btnDisable.disabled=true;
           btnDeprovision.disabled=false;
-        }
-        else if(CBOU[3] = "DEPROVISONED"){
+          // console.log('disabled: ' + status);
+        } else {
           btnEnable.disabled=true;
           btnDisable.disabled=true;
           btnDeprovision.disabled=true;
-        }else{
-          btnEnable.disabled=false;
-          btnDisable.disabled=false;
-          btnDeprovision.disabled=false;
+          // console.log('else: ' + status);
         }
 
-        console.log('Device info: ' + CBOU);
-
-        // var list1 = CBOU[12];
-        // console.log('list1 is array ' + Array.isArray(list1));
-        // console.log(list1);
-        // console.log(list1.length);
-        // for (i=0; i<list1.length; i++) {
-        //   console.log(i);
-        //   var lan1 = list1[i].ipAddress;
-        //   console.log(lan1);
-        //   var wan1 = list1[i].wanIpAddress;
-        //   console.log(wan1);
-        // let html1='<style>td,th{border:0px solid black;}</style><table>';
-        // html1+='<tr><td>' + lan1 + '</td><td>' + wan1 + '</td></tr>';
-        // html1+='</table>';
-        // var myTable1 = document.getElementById("idCBIP3");
-        // myTable1.insertAdjacentHTML("beforeend", html1);
-        // }
-
+        if (CBOU[12] !=""){
         var list2 = CBOU[12];
-        console.log('list2 is array ' + Array.isArray(list2));
-        console.log(list2);
+        // console.log('list2 is array ' + Array.isArray(list2));
+        // console.log(list2);
           var lan2 = list2[0].ipAddress;
-          console.log(lan2);
+          // console.log(lan2);
           var wan2 = list2[0].wanIpAddress;
-          console.log(wan2);
+          // console.log(wan2);
           document.getElementById('idLan2').value = lan2;
           document.getElementById('idWan2').value = wan2;
+        } else {
+          var lan2 = "No IP logged";
+          // console.log(lan2);
+          var wan2 = "No IP logged";
+          // console.log(wan2);
+          document.getElementById('idLan2').value = lan2;
+          document.getElementById('idWan2').value = wan2;
+        }
 
         var list0 = CBOU[13];
-        console.log('list0 is array ' + Array.isArray(list0));
-        console.log(list0);
-        console.log(list0.length);
+        // console.log('list0 is array ' + Array.isArray(list0));
+        // console.log(list0);
+        // console.log(list0.length);
         for (i=0; i<list0.length; i++) {
-          console.log(i);
+          // console.log(i);
           var user0 = list0[i].email;
-          console.log(user0);
+          // console.log(user0);
           var type0 = list0[i].type;
-          console.log(type0);
+          // console.log(type0);
         let html0='<style>td,th{border:0px solid black;}</style><table>';
         html0+='<tr><td>' + user0 + '</td></tr>';
         html0+='</table>';
         var myTable0 = document.getElementById("idCBRecentUsers0s");
         myTable0.insertAdjacentHTML("beforeend", html0);
         }
+
     }
 
     document.getElementById("btnEnable").addEventListener("click",enableCBS);
@@ -164,10 +150,9 @@ function getUrl(){
     google.script.run
     .withSuccessHandler(function(url){
        var realWebAddress = url + '?sn=' + sernum
-       console.log(realWebAddress);
+      //  console.log(realWebAddress);
        window.open(realWebAddress, "_top");
      })
     .getScriptURL();
 }
-
 </script>
