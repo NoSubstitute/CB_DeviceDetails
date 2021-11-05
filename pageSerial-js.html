@@ -109,6 +109,9 @@
       window.printEnableCB = function(serno) {
         document.getElementById("idActionResult").style.backgroundColor="#81c784";
         document.getElementById("idActionResult").value = "Enheten " + serno + " har blivit aktiverad";
+        btnEnable.disabled=true;
+        btnDisable.disabled=true;
+        btnDeprovision.disabled=true;
     }
     
     document.getElementById("btnDisable").addEventListener("click",disableCBS);
@@ -122,6 +125,9 @@
       window.printDisableCB = function(serno) {
         document.getElementById("idActionResult").style.backgroundColor="#e57373";
         document.getElementById("idActionResult").value = "Enheten " + serno + " har blivit inaktiverad";
+        btnEnable.disabled=true;
+        btnDisable.disabled=true;
+        btnDeprovision.disabled=true;
     }
 
     function confirmDeprovision() {
@@ -142,6 +148,9 @@
       window.printDeprovisionCB = function(serno) {
         document.getElementById("idActionResult").style.backgroundColor="#ba68c8";
         document.getElementById("idActionResult").value = "Enheten " + serno + " har blivit avregistrerad";
+        btnEnable.disabled=true;
+        btnDisable.disabled=true;
+        btnDeprovision.disabled=true;
     }
 
 document.getElementById("btnRefresh").addEventListener("click",getUrl);
