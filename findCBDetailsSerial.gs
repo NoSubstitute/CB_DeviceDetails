@@ -8,12 +8,9 @@ function findCBOUs() {
     var serial = chromebooklist[0].serialNumber;
     if (chromebooklist[0].orgUnitPath) {var ou = chromebooklist[0].orgUnitPath} else {var ou = ""};
     if (chromebooklist[0].status) {var status = chromebooklist[0].status} else {var status = ""};
-    // if (chromebooklist[0].lastSync) {var lastsync = chromebooklist[0].lastSync.substring(0, 16).replace(/T/g, " ")} else {var lastsync = ""};
     if (chromebooklist[0].lastSync) {var lastsync = new Date(chromebooklist[0].lastSync)} else {var lastsync = ""};
     var LastSyncProper = lastsync.toLocaleString("sv-SE", {  year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' });
     if (chromebooklist[0].osVersion) {var osversion = chromebooklist[0].osVersion} else {var osversion = ""};
-    // if (chromebooklist[0].lastKnownNetwork.ipAddress) {var CBIP1 = chromebooklist[0].lastKnownNetwork.ipAddress} else {var CBIP1 = ""};
-    // if (chromebooklist[0].lastKnownNetwork.wanIpAddress) {var CBIP2 = chromebooklist[0].lastKnownNetwork.wanIpAddress} else {var CBIP2 = ""};
     if (chromebooklist[0].lastKnownNetwork) {var CBIP3 = chromebooklist[0].lastKnownNetwork} else {var CBIP3 = ""};
     if (chromebooklist[0].annotatedAssetId) {var asset = chromebooklist[0].annotatedAssetId} else {var asset = ""};
     if (chromebooklist[0].manufactureDate) {var CBManufactureDate = chromebooklist[0].manufactureDate} else {var CBManufactureDate = ""};
@@ -23,10 +20,10 @@ function findCBOUs() {
     // Swedish SI date format of AUE, YYYY-MM-DD
     // var aue = new Date(parseInt(autoUpdateExpiration)).toLocaleString("sv-SE", {  year: 'numeric', month: 'numeric', day: 'numeric' }) + " (" + autoUpdateExpiration + ")";
     // Simple Swedish date format of AUE, showing only "month year"
-    // If you want US format replace .toLocaleString("en-US", {  year: 'numeric', month: 'short' }) 
     var aue = new Date(parseInt(autoUpdateExpiration)).toLocaleString("sv-SE", {  year: 'numeric', month: 'short' }) + " (" + autoUpdateExpiration + ")";
+    // If you want US format replace .toLocaleString("en-US", {  year: 'numeric', month: 'short' }) 
 
-    // This one does a double check, as one can be undefined while the other isn't, giving wrong result.
+    // This one does a double check of recentUsers values, as one can be undefined while the other isn't, giving wrong result.
     if (chromebooklist[0].recentUsers && chromebooklist[0].recentUsers[0].email) {
       var recentUser = chromebooklist[0].recentUsers[0].email
       var recentUsers = chromebooklist[0].recentUsers} else {
