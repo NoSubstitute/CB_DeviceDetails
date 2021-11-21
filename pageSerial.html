@@ -18,21 +18,25 @@
     </table>
     <table class="rader">
       <tr>
-          <td>Visar information om enhet med serienummer:</td>
+          <td>Visar information om enhet med följande serienummer</td>
           <td><input type="text" style="border:none; box-shadow: none;" id="idCBs"></td>
       </tr>
       <tr>
-          <td>Modell:</td>
+          <td>Modell</td>
           <td><input type="text" style="border:none; box-shadow: none;" id="idCBsModel"></td>
       </tr>
     </table>
-    <h6>Sätt ny status på aktuell enhet</h6>
+    <h6><b>Sätt ny status på aktuell enhet</b></h6>
+    <h7 style="color:grey">ACTIVE (Aktiv), enhet som är aktiv.</h7>
+    <div class="row">
+      <h7 style="color:grey">DISABLED (Inaktiv), för närvarande låst (förlorad/stulen).</h7>
+    <div class="row">
+    <h7 style="color:grey">DEPROVISONED (Avregistrerad), hanteras inte (skrotad/såld).</h7>
     <div class="row">
       <button class="waves-effect waves-light btn-small green lighten-2" id="btnEnable" disabled>Aktivera (ACTIVE)</button>
       <button class="waves-effect waves-light btn-small red lighten-2" id="btnDisable" disabled>Inaktivera (DISABLED)</button>
       <button class="waves-effect waves-light btn-small purple lighten-2" onclick="confirmDeprovision()" id="btnDeprovision" disabled>Avregistrera (DEPROVISONED)</button>
-      <br><h7 text="grey">Avregistrerad/Deprovisioned = Hanteras inte längre, oftast pga. skrotning/försäljning</h7>
-      <input type="text" id="idActionResult" class="card-panel">
+      <br><br><input type="text" id="idActionResult" class="card-panel">
     </div>
 
     <table class="rader">
@@ -64,10 +68,7 @@
             <td>MAC Adress</td>
             <td><input type="text" style="border:none; box-shadow: none;" id="idCBmacAddresss"></td>
         </tr>
-    <!--</table>
-    <table>-->
       <tr>
-          <!--<td><h6>IP-adresser</td>-->
           <td>LAN IP<input type="text" style="border:none; box-shadow: none;" id="idLan2"></td>
           <td>WAN IP<input type="text" style="border:none; box-shadow: none;" id="idWan2"></td>
       </tr>
