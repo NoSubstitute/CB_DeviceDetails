@@ -22,7 +22,7 @@ function doGet(e){
 
   // return HtmlService.createHtmlOutput(number)
   var t = HtmlService.createTemplateFromFile("pageSerial");
-  return t.evaluate().setTitle("CB_DeviceDetails");
+  return t.evaluate().setTitle("CB_DeviceDetails").setFaviconUrl('https://docs.google.com/drawings/d/1z6XM6zDn9tT8NKmaSephC_VUL87tCIdrid_ghJmE1_8/export/png');
 }
 
 function include(filename) {
