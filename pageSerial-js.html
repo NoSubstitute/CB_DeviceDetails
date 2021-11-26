@@ -79,7 +79,6 @@
         var myTable0 = document.getElementById("idCBRecentUsers0s");
         myTable0.insertAdjacentHTML("beforeend", html0);
         }
-
     }
 
     document.getElementById("btnEnable").addEventListener("click",enableCBS);
@@ -115,10 +114,10 @@
     }
 
     function confirmDeprovision() {
-        let confirmDeprovision = confirm("\n---------------------------------------------------\nOBS! DENNA ÅTGÄRD ÄR OÅTERKALLELIG.\n\nVälj OK för att AVREGISTRERA enheten.\nAvbryt ångrar åtgärden.\n---------------------------------------------------");
+        let confirmDeprovision = confirm("\n---------------------------------------------------\nENHETEN KOMMER NU ATT SKROTAS PERMANENT.\nOBS! DENNA ÅTGÄRD ÄR OÅTERKALLELIG.\n\nVälj OK för att markera enheten för SKROTNING.\nAvbryt ångrar åtgärden.\n---------------------------------------------------");
         
         if (confirmDeprovision) {
-          alert("\n---------------------------------------------------\nEnheten avregistreras nu.\n---------------------------------------------------");
+          alert("\n---------------------------------------------------\nEnheten är nu markerad som skrotad (avregistrerad).\n---------------------------------------------------");
 
         var sernum = document.getElementById("idCBs").value;
         google.script.run
