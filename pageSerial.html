@@ -3,7 +3,7 @@
   <head>
     <base target="_top">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>CB_QueryDetails</title>
+    <title>CB_DeviceDetails</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <?!= include("page-css"); ?>
@@ -27,15 +27,17 @@
       </tr>
     </table>
     <h6><b>Sätt ny status på aktuell enhet</b></h6>
-    <h7 style="color:grey">ACTIVE (Aktiv), enhet som är aktiv.</h7>
+    <h7 style="color:black">AKTIVERA (ACTIVATE), enhet som är aktiv.</h7>
     <div class="row">
-      <h7 style="color:grey">DISABLED (Inaktiv), för närvarande låst (förlorad/stulen).</h7>
+      <h7 style="color:black">INAKTIVERA (DISABLE), låst enhet (förlorad/stulen).</h7>
     <div class="row">
-    <h7 style="color:grey">DEPROVISONED (Avregistrerad), hanteras inte (skrotad/såld).</h7>
+    <h7 style="color:black">SKROTA, avreg. (DEPROVISON), enhet hanteras inte  (skrotad/såld).</h7><br>
+    <h7 style="color:grey"><i>SKROTA-knappen nedan avser endast SKROTNING.</i> Verkstadsärende, försäljning m.m. hanteras av Advania.</h7><br>
+    <h7 style="color:grey">Notera att DEPROVISIONED innefattar allehanda enheter som inte hanteras (skrotade, utbytta, sålda etc).</h7>
     <div class="row">
-      <button class="waves-effect waves-light btn-small green lighten-2" id="btnEnable" disabled>Aktivera (ACTIVE)</button>
-      <button class="waves-effect waves-light btn-small red lighten-2" id="btnDisable" disabled>Inaktivera (DISABLED)</button>
-      <button class="waves-effect waves-light btn-small purple lighten-2" onclick="confirmDeprovision()" id="btnDeprovision" disabled>Avregistrera (DEPROVISONED)</button>
+      <button class="waves-effect waves-light btn-small green lighten-2" id="btnEnable" disabled>AKTIVERA (ACTIVATE)</button>
+      <button class="waves-effect waves-light btn-small red lighten-2" id="btnDisable" disabled>INAKTIVERA (DISABLE)</button>
+      <button class="waves-effect waves-light btn-small purple lighten-2" onclick="confirmDeprovision()" id="btnDeprovision" disabled>SKROTA, avreg. (DEPROVISION)</button>
       <br><br><input type="text" id="idActionResult" class="card-panel">
     </div>
 
