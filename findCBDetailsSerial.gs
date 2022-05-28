@@ -2,8 +2,9 @@ function findCBOUs() {
   var serno = PropertiesService.getUserProperties().getProperty("serialNumberProp");
   var sernoquery = "id:"+serno;
   // Use AdminSDK API to check if the cros device exists. Else the extraction of OU will fail.
-  var chromebooklist = AdminDirectory.Chromeosdevices.list('my_customer', {query: sernoquery}).chromeosdevices;
-  if (!chromebooklist) {{var serno = "Wrong serial or outside your school/s"};} 
+  try {
+    var chromebooklist = AdminDirectory.Chromeosdevices.list('my_customer', {query: sernoquery}).chromeosdevices;
+    if (!chromebooklist) {{var serno = "Wrong serial or outside your school/s"};} 
   else {
     var serial = chromebooklist[0].serialNumber;
     if (chromebooklist[0].orgUnitPath) {var ou = chromebooklist[0].orgUnitPath} else {var ou = ""};
@@ -32,4 +33,9 @@ function findCBOUs() {
   }
   
   return [serno,serial, CBsModel, status, LastSyncProper, recentUser, ou, asset, osversion, CBManufactureDate, aue,macAddress, CBIP3, recentUsers];  
-}
+    
+    // If the check fails for some reason, log the error
+    } catch (err) {
+      return [serno,"", "", "", "", "", "", "", "", "", "", "", "", ""];
+    }
+  }
