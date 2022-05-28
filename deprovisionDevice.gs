@@ -7,7 +7,7 @@ function deprovisionCB(sernum){
         if (!chromebooklist) {
           Logger.log([serno, "not found"]);
         } else if (chromebooklist.length !== 1) {
-          //Logger.log([serno, chromebooklist.length+" found"]);
+          Logger.log([serno, chromebooklist.length+" found"]);
         } else {
           var id = chromebooklist[0].deviceId;
           // For each line, try to update the device with given data, and log the result
