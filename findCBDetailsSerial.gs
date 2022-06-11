@@ -36,6 +36,7 @@ function findCBOUs() {
     
     // If the check fails for some reason, log the error
     } catch (err) {
+      Logger.log([serno, err]);
       return [serno,"", "", "", "", "", "", "", "", "", "", "", "", ""];
     }
   }
