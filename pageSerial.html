@@ -18,7 +18,7 @@
     </table>
     <table class="rader">
       <tr>
-          <td>Visar information om enhet med följande serienummer</td>
+          <td><input type="text" style="border:none; box-shadow: none;" id="idInfo"></td>
           <td><input type="text" style="border:none; box-shadow: none;" id="idCBs"></td>
       </tr>
       <tr>
@@ -31,16 +31,15 @@
     <div class="row">
       <h7 style="color:black">INAKTIVERA (DISABLE), låst enhet (förlorad/stulen).</h7>
     <div class="row">
-    <h7 style="color:black">SKROTA, avreg. (DEPROVISON), enhet hanteras inte  (skrotad/såld).</h7><br><br>
+    <h7 style="color:black">SKROTA, avreg. (DEPROVISON), enhet hanteras inte  (skrotad).</h7><br><br>
     <h7 style="color:black"><i>SKROTA-knappen nedan avser endast SKROTNING, och du behöver dessutom genomföra skrotning i CUBE.</i></h7><br>
-    <h7 style="color:grey">Notera att DEPROVISIONED är alla enheter som inte hanteras (skrotade, utbytta, sålda etc). Verkstadsärende, försäljning m.m. hanteras av Advania.</h7>
+    <h7 style="color:grey">Notera att DEPROVISIONED är alla enheter som inte hanteras (skrotade, utbytta, sålda etc). Verkstadsärende, försäljning m.m. hanteras av Advania. Observera att skrotningsprocessen tar ett antal sekunder att bli klar.</h7>
     <div class="row">
       <button class="waves-effect waves-light btn-small green lighten-2" id="btnEnable" disabled>AKTIVERA (ACTIVATE)</button>
       <button class="waves-effect waves-light btn-small red lighten-2" id="btnDisable" disabled>INAKTIVERA (DISABLE)</button>
       <button class="waves-effect waves-light btn-small purple lighten-2" onclick="confirmDeprovision()" id="btnDeprovision" disabled>SKROTA, avreg. (DEPROVISION)</button>
       <br><br><input type="text" id="idActionResult" class="card-panel">
     </div>
-
     <table class="rader">
         <tr>
             <td>Senast synkronisering</td>
