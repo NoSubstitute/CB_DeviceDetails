@@ -38,8 +38,7 @@
 
         document.getElementById('idActionResult').value = "Nuvarande status är " + CBOU[3];
 
-        let status = CBOU[3]
-        // Logger.log(status);
+        let status = CBOU[3];
         if (status == "ACTIVE") {
           btnEnable.disabled=true;
           btnDisable.disabled=false;
@@ -58,7 +57,7 @@
           btnDeprovision.disabled=true;
           btnRefresh.disabled=true;
           document.getElementById("idActionResult").style.backgroundColor="#ffc90e";
-          document.getElementById("idActionResult").value = " Serienumret du valt verkar inte tillhöra din skola. Se i CB_LookUp. Kontakta din IT-partner vid frågor.";
+          document.getElementById("idActionResult").value = "Serienumret du valt verkar inte tillhöra din skola. Se i CB_LookUp. Kontakta din IT-partner vid frågor.";
           document.getElementById("idCBs").value = "";
           document.getElementById('idInfo').value = "";
           document.getElementById('idLan2').value = "";
@@ -69,7 +68,7 @@
           btnDeprovision.disabled=true;
           btnRefresh.disabled=true;
           document.getElementById("idActionResult").style.backgroundColor="#ffc90e";
-          document.getElementById("idActionResult").value = " Du verkar sakna rättigheter att visa detaljer om enheter. Kontakta din IT-partner.";
+          document.getElementById("idActionResult").value = "Du verkar sakna rättigheter att visa detaljer om enheter. Kontakta din IT-partner.";
           document.getElementById("idCBs").value = "";
           document.getElementById("idInfo").value = "";
         } else {

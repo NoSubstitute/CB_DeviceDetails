@@ -1,103 +1,90 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <base target="_top">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CB_DeviceDetails</title>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <?!= include("page-css"); ?>
-</head>
-
-<body>
+  <head>
+    <base target="_top">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>CB_DeviceDetails</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <?!= include("page-css"); ?>
+  </head>
+  <body>
   <div class="container">
     <table class="rubrik">
       <tr>
-        <td>
-          <h4>CB_DeviceDetails</h4>
-        </td>
-        <td><button class="waves-effect waves-light btn-small blue lighten-2" id="btnRefresh">Uppdatera sidan</button>
-        </td>
-      </tr>
+          <td><h4>CB_DeviceDetails</h4></td>
+          <td><button class="waves-effect waves-light btn-small blue lighten-2" id="btnRefresh">Uppdatera sidan</button></td>
+    </tr>
     </table>
     <table class="rader">
       <tr>
-        <td><input type="text" style="border:none; box-shadow: none;" id="idInfo"></td>
-        <td><input type="text" style="border:none; box-shadow: none;" id="idCBs"></td>
+          <td><input type="text" style="border:none; box-shadow: none;" id="idInfo"></td>
+          <td><input type="text" style="border:none; box-shadow: none;" id="idCBs"></td>
       </tr>
       <tr>
-        <td>Modell</td>
-        <td><input type="text" style="border:none; box-shadow: none;" id="idCBsModel"></td>
+          <td>Modell</td>
+          <td><input type="text" style="border:none; box-shadow: none;" id="idCBsModel"></td>
       </tr>
     </table>
     <h6><b>Sätt ny status på aktuell enhet</b></h6>
     <h7 style="color:black">AKTIVERA (ACTIVATE), enhet som är aktiv.</h7>
     <div class="row">
       <h7 style="color:black">INAKTIVERA (DISABLE), låst enhet (förlorad/stulen).</h7>
-      <div class="row">
-        <h7 style="color:black">SKROTA, avreg. (DEPROVISON), enhet hanteras inte (skrotad).</h7><br><br>
-        <h7 style="color:black">
-          <i>SKROTA-knappen nedan avser endast SKROTNING, och du behöver dessutom genomföra skrotning i CUBE.</i>
-        </h7>
-        <br>
-        <h7 style="color:grey">Notera att DEPROVISIONED är alla enheter som inte hanteras (skrotade, utbytta, sålda
-          etc). Verkstadsärende, försäljning m.m. hanteras av Advania. Observera att skrotningsprocessen tar ett antal
-          sekunder att bli klar.</h7>
-        <div class="row">
-          <button class="waves-effect waves-light btn-small green lighten-2" id="btnEnable" disabled>AKTIVERA (ACTIVATE)</button>
-          <button class="waves-effect waves-light btn-small red lighten-2" id="btnDisable" disabled>INAKTIVERA (DISABLE)</button>
-          <button class="waves-effect waves-light btn-small purple lighten-2" onclick="confirmDeprovision()" id="btnDeprovision" disabled>SKROTA, avreg. (DEPROVISION)</button>
-          <br><br><input type="text" id="idActionResult" class="card-panel">
-        </div>
-        <table class="rader">
-          <tr>
+    <div class="row">
+    <h7 style="color:black">SKROTA, avreg. (DEPROVISON), enhet hanteras inte  (skrotad).</h7><br><br>
+    <h7 style="color:black"><i>SKROTA-knappen nedan avser endast SKROTNING, och du behöver dessutom genomföra skrotning i CUBE.</i></h7><br>
+    <h7 style="color:grey">Notera att DEPROVISIONED är alla enheter som inte hanteras (skrotade, utbytta, sålda etc). Verkstadsärende, försäljning m.m. hanteras av Advania.</h7>
+    <div class="row">
+      <button class="waves-effect waves-light btn-small green lighten-2" id="btnEnable" disabled>AKTIVERA (ACTIVATE)</button>
+      <button class="waves-effect waves-light btn-small red lighten-2" id="btnDisable" disabled>INAKTIVERA (DISABLE)</button>
+      <button class="waves-effect waves-light btn-small purple lighten-2" onclick="confirmDeprovision()" id="btnDeprovision" disabled>SKROTA, avreg. (DEPROVISION)</button>
+      <br><br><input type="text" id="idActionResult" class="card-panel">
+    </div>
+    <table class="rader">
+        <tr>
             <td>Senast synkronisering</td>
             <td><input type="text" style="border:none; box-shadow: none;" id="idCBlastsyncs"></td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
             <td>Organisationsenhet (OU)</td>
             <td><input type="text" style="border:none; box-shadow: none;" id="idCBOUs"></td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
             <td>Resurs-id</td>
             <td><input type="text" style="border:none; box-shadow: none;" id="idCBassets"></td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
             <td>Chrome-version</td>
             <td><input type="text" style="border:none; box-shadow: none;" id="idCBosversions"></td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
             <td>Tillverkningsdatum</td>
             <td><input type="text" style="border:none; box-shadow: none;" id="idCBManufactureDate"></td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
             <td>Automatisk uppdatering löper ut</td>
             <td><input type="text" style="border:none; box-shadow: none;" id="idCBOUautoUpdateExpirations"></td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
             <td>MAC Adress</td>
             <td><input type="text" style="border:none; box-shadow: none;" id="idCBmacAddresss"></td>
-          </tr>
-          <tr>
-            <td>LAN IP<input type="text" style="border:none; box-shadow: none;" id="idLan2"></td>
-            <td>WAN IP<input type="text" style="border:none; box-shadow: none;" id="idWan2"></td>
-          </tr>
-        </table>
-        <table>
-          <thead>
-            <tr>
-              <th>
-                <h6>Lista över senaste användare (mest aktuell > minst aktuell)
-              </th>
-            </tr>
-          </thead>
-          <tbody id="idCBRecentUsers0s">
-          </tbody>
-        </table>
-      </div>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-      <?!= include("pageSerial-js"); ?>
-</body>
-
+        </tr>
+      <tr>
+          <td>LAN IP<input type="text" style="border:none; box-shadow: none;" id="idLan2"></td>
+          <td>WAN IP<input type="text" style="border:none; box-shadow: none;" id="idWan2"></td>
+      </tr>
+    </table>
+    <table>
+      <thead>
+      <tr>
+          <th><h6>Lista över senaste användare (mest aktuell > minst aktuell)</th>
+      </tr>
+      </thead>
+      <tbody id="idCBRecentUsers0s">
+      </tbody>
+    </table>
+  </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<?!= include("pageSerial-js"); ?>
+  </body>
 </html>
