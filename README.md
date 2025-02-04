@@ -11,3 +11,9 @@ Oh, yes, I should totally make that a variable instead. :-)
 [Open and copy this](https://script.google.com/d/1zJ8wA-bJ7-3qoUC5Aksf-HjFoCB2QNI8DIeoGZ1pPXfHqgOBdS_aE_fZ/edit)
 
 Yes, always read through the code to make sure it's only doing what you expect.
+
+[PRIVACY POLICY](https://tools.no-substitute.com/pp)
+
+tl;dr - No data is sent anywhere, except between you and Google.
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.me/NoSubstitute/25USD)
